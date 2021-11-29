@@ -1,0 +1,37 @@
+version: "2.0"
+
+intents:
+  - greet
+  - name
+  - goodbye
+  - affirm
+  - deny
+  - help
+  - homework
+
+responses:
+  utter_greet:
+  - text: "Hey! How can I help you?"
+
+  utter_introduce:
+  - text: "My name is rasa. What is your name?"
+
+  utter_help:
+  - text: "How can I help you today?"
+
+  utter_inspiration:
+  - text: "God helps thos who helps themselves. And I am just a bot! Go do your homework yourself."
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
