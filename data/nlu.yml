@@ -87,6 +87,14 @@ nlu:
     - course schedule
     - course structure
 
+- intent: class_holidays
+  examples: |
+    - when will there be no class?
+    - when are the holidays?
+    - tell me the holidays
+    - what are the holidays?
+    - what are the holidays this year?
+
 - intent: course_syllabus
   examples: |
     - What is the course syllabus?

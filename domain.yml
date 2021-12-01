@@ -12,6 +12,7 @@ intents:
   - books
   - class_schedule
   - course_syllabus
+  - class_holidays
   - assignment_deadlines
 
 
@@ -58,6 +59,10 @@ responses:
   utter_greet_with_name:
   - text: "Hey {name}, how can I help you?"
 
+actions:
+  - action_get_schedule
+  - action_get_holidays
+
 entities:
   - name
   - weeknumber
@@ -69,7 +74,11 @@ slots:
   weeknumber:
     type: text
 
-
+forms:
+  personal_info_form:
+    required_slots:
+      name:
+      - type: from_text
 
 
 session_config:

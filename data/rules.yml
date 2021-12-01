@@ -12,3 +12,36 @@ rules:
 #   - intent: name
 #   - action: utter_introduce
 
+- rule: Ask Name form
+  steps:
+  - intent: name
+  - action: utter_introduce
+  - action: personal_info_form
+  - active_loop: personal_info_form
+
+
+- rule: submit form
+  steps:
+  # Form is deactivated
+  - action: personal_info_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_greet_with_name
+
+- rule: Display schedule
+  steps:
+  - intent: class_schedule
+  - action: action_get_schedule
+
+- rule: Display Holidays
+  steps:
+  - intent: class_holidays
+  - action: action_get_holidays
+
+
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: utter_greet_with_name
