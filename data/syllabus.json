@@ -1,0 +1,20 @@
+{
+    "books":[
+        {
+            "title":"Speech and language processing",
+            "author":"Jurafsky, D., & Martin, J. H.",
+            "url":"https://web.stanford.edu/~jurafsky/slp3/"
+        },
+        {
+            "title":"Natural language processing with Python",
+            "author":"Bird, S., Klein, E., & Loper, E",
+            "pages":"http://www.nltk.org/book"
+        },
+        {
+            "title":"Natural Language Processing in Action: Understanding, analyzing, and generating text with Python",
+            "author":"Lane, H., Howard, C., & Hapke, H",
+            "pages":"https://www.manning.com/books/natural-language-processing-in-action#toc"
+        }
+    ]
+    
+}

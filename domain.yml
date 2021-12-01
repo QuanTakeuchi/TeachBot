@@ -3,11 +3,17 @@ version: "2.0"
 intents:
   - greet
   - name
+  - name_entry
   - goodbye
   - affirm
   - deny
   - help
   - homework
+  - books
+  - class_schedule
+  - course_syllabus
+  - assignment_deadlines
+
 
 responses:
   utter_greet:
@@ -18,6 +24,12 @@ responses:
 
   utter_help:
   - text: "How can I help you today?"
+
+  utter_book_menu:
+  - text: "Do you want the list of books for this course or do you want a specific book?"
+
+  utter_book_link:
+  - text: "Here is the link to the book that you requested"
 
   utter_inspiration:
   - text: "God helps thos who helps themselves. And I am just a bot! Go do your homework yourself."
@@ -30,6 +42,34 @@ responses:
 
   utter_goodbye:
   - text: "Bye"
+
+  utter_class_schedule:
+  - text: "Class Schedule "
+  
+  utter_course_syllabus:    
+  - text: "Here is the link to the complete course syllabus:  "
+  
+  utter_assignment_deadlines:    
+  - text: " Individual Assignment 1 "
+
+  utter_ask_name:
+  - text: "What is your name?"
+
+  utter_greet_with_name:
+  - text: "Hey {name}, how can I help you?"
+
+entities:
+  - name
+  - weeknumber
+
+
+slots:
+  name:
+    type: text
+  weeknumber:
+    type: text
+
+
 
 
 session_config:

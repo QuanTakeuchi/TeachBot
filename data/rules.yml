@@ -7,7 +7,8 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Ask user what he would like to do once he greets
-  steps:
-  - intent: name
-  - action: utter_introduce
+# - rule: Ask user what he would like to do once he greets
+#   steps:
+#   - intent: name
+#   - action: utter_introduce
+

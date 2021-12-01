@@ -1,5 +1,8 @@
 version: "2.0"
 
+policies:
+- name: RulePolicy
+
 nlu:
 - intent: greet
   examples: |
@@ -67,3 +70,45 @@ nlu:
     - who are you?
     - What do you call yourself?
 
+- intent: books
+  examples: |
+    - Can you give me a link to the book?
+    - I need a link to the book.
+    - Can you download the book?
+    
+- intent: class_schedule
+  examples: |
+    - what will be the weekly class schedule?
+    - Can you help me with the class schedule?
+    - class schedule?
+    - week by week schedule
+    - topics that will be covered every week
+    - weekly schedule
+    - course schedule
+    - course structure
+
+- intent: course_syllabus
+  examples: |
+    - What is the course syllabus?
+    - course syllabus?
+    - NLP syllabus
+    - course outcomes
+    
+- intent: assignment_deadlines
+  examples: |
+    - What is the deadline for assignments?
+    - Assignment deadlines
+    - NLP investigation deadline
+    - NLP group project deadlines
+    - NLP presentation deadline
+    - Can you help me check my deadline for this course?
+
+- intent: name_entry
+  examples: |
+    - My name is [Rohit](name)
+    - myself [Quan](name)
+    - myself [Rohit](name)
+    - I am [Rohit](name)
+    - [Rohit](name) is my name
+    - [Rohit](name)
+    - name is [Rohit](name)
