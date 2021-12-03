@@ -18,6 +18,10 @@ rules:
   - action: utter_introduce
   - action: personal_info_form
   - active_loop: personal_info_form
+  - slot_was_set:
+    - name: Quan
+  - slot_was_set:
+    - last_name: Nguyen
 
 
 - rule: submit form
@@ -25,6 +29,10 @@ rules:
   # Form is deactivated
   - action: personal_info_form
   - active_loop: null
+  - slot_was_set:
+    - name: Quan
+  - slot_was_set:
+    - last_name: Nguyen
   - slot_was_set:
     - requested_slot: null
   # The actions we want to run when the form is submitted.
@@ -40,6 +48,43 @@ rules:
   - intent: class_holidays
   - action: action_get_holidays
 
+- rule: Display Deadlines
+  condition:
+  - slot_was_set:
+    - assignmentNum: false
+  steps:
+  - intent: assignment_deadlines
+  - action: assignment_info_form
+  - active_loop: assignment_info_form
+  - slot_was_set:
+    - assignmentNum: -1
+
+# - rule: ReDisplay Deadlines
+#   condition:
+#   - slot_was_set:
+#     - assignmentNum: true
+#   steps:
+#   - intent: assignment_deadlines
+#   - action: action_get_deadlines
+#   - action: utter_ask_assignmentNum
+#   # - slot_was_set:
+#   #   - assignmentNum: -1
+#   - action: action_get_deadlines
+#   # - action: assignment_info_form
+#   # - active_loop: assignment_info_form
+#   # - slot_was_set:
+#   #   - assignmentNum: -1
+
+
+- rule: Submit Deadlines Form
+  steps:
+  # Form is deactivated
+  - action: assignment_info_form
+  - active_loop: null
+  - slot_was_set:
+    - assignmentNum: -1
+  # The actions we want to run when the form is submitted.
+  - action: action_get_deadlines
 
 - rule: Greet user
   steps:

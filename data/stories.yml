@@ -1,6 +1,20 @@
 version: "2.0"
 
 stories:
+# - story: Submit Deadlines Form
+#   steps:
+#   # Form is deactivated
+#   - action: assignment_info_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - assignmentNum: -1
+#   # The actions we want to run when the form is submitted.
+#   - action: action_get_deadlines
+#   - action: utter_change_assignmentNum
+#   - intent: affirm
+#   - action: utter_ask_assignmentNum
+#   - action: action_get_deadlines
+
 # - story: ask help
 #   steps:
 #   - intent: greet

@@ -21,7 +21,7 @@ responses:
   - text: "Hey! How can I help you?"
 
   utter_introduce:
-  - text: "My name is rasa. What is your name?"
+  - text: "My name is Felicity. I am a virtual assistant for the NLP course IST664. I can help you with your homework, books, class schedule, and more."
 
   utter_help:
   - text: "How can I help you today?"
@@ -50,28 +50,52 @@ responses:
   utter_course_syllabus:    
   - text: "Here is the link to the complete course syllabus:  "
   
-  utter_assignment_deadlines:    
-  - text: " Individual Assignment 1 "
+  utter_ask_assignmentNum:    
+  - text: "What deadlines do you want? \n
+            Your options are : \n
+              1, 2, 3 (for individual assignments) \n
+              -1 (for all assignments and project deadlines) \n
+              Proposal, Presentation, Report, Investigation (for project deadlines) \n
+              mini-talk, lab, inclass "
 
+  utter_change_assignmentNum:
+  - text: "Would you like deadlines for a different assignment? \n
+           Your options are : \n
+              1, 2, 3 (for individual assignments) \n
+              -1 (for all assignments and project deadlines) \n
+              Proposal, Presentation, Report, Investigation (for project deadlines) \n
+              mini-talk, lab, inclass "
+              
   utter_ask_name:
   - text: "What is your name?"
 
+  utter_ask_last_name:
+  - text: "What is your last name?"
+  
   utter_greet_with_name:
   - text: "Hey {name}, how can I help you?"
+
 
 actions:
   - action_get_schedule
   - action_get_holidays
+  - action_get_deadlines
 
 entities:
   - name
+  - last_name
   - weeknumber
+  - assignmentNum
 
 
 slots:
   name:
     type: text
+  last_name:
+    type: text
   weeknumber:
+    type: text
+  assignmentNum:
     type: text
 
 forms:
@@ -79,7 +103,16 @@ forms:
     required_slots:
       name:
       - type: from_text
-
+      last_name:
+      - type: from_text
+  chapter_info_form:
+    required_slots:
+      weeknumber:
+      - type: from_text
+  assignment_info_form:
+    required_slots:
+      assignmentNum:
+      - type: from_text
 
 session_config:
   session_expiration_time: 60

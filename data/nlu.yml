@@ -104,12 +104,15 @@ nlu:
     
 - intent: assignment_deadlines
   examples: |
-    - What is the deadline for assignments?
-    - Assignment deadlines
-    - NLP investigation deadline
-    - NLP group project deadlines
-    - NLP presentation deadline
-    - Can you help me check my deadline for this course?
+    - What is the deadline for assignments [1](assignmentNum)?
+    - Assignment [2](assignmentNum) deadlines
+    - NLP [investigation](assignmentNum) deadline
+    - NLP group [project](assignmentNum) deadlines
+    - NLP [presentation](assignmentNum) deadline
+    - what is [minitalk](assignmentNum) deadline
+    - when is [lab](assignmentNum) deadline
+    - when is [inclass](assignmentNum) deadline
+    - Can you help me check my deadlines for this course?
 
 - intent: name_entry
   examples: |
