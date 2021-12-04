@@ -14,6 +14,8 @@ intents:
   - course_syllabus
   - class_holidays
   - assignment_deadlines
+  - class_notes
+  - mini_talk
 
 
 responses:
@@ -56,7 +58,7 @@ responses:
               1, 2, 3 (for individual assignments) \n
               -1 (for all assignments and project deadlines) \n
               Proposal, Presentation, Report, Investigation (for project deadlines) \n
-              mini-talk, lab, inclass "
+              minitalk, lab, inclass "
 
   utter_change_assignmentNum:
   - text: "Would you like deadlines for a different assignment? \n
@@ -64,14 +66,27 @@ responses:
               1, 2, 3 (for individual assignments) \n
               -1 (for all assignments and project deadlines) \n
               Proposal, Presentation, Report, Investigation (for project deadlines) \n
-              mini-talk, lab, inclass "
-              
+              minitalk, lab, inclass "
+
+  utter_show_notes:
+  - text: "Here are the notes for this class: "
+
+  utter_ask_chapterName:
+  - text: "Which chapter would you like notes for? \n
+          Enter topic like: Regex, Sentiment Analysis, Corpus Linguistics, Introduction, etc. "
+
   utter_ask_name:
   - text: "What is your name?"
 
   utter_ask_last_name:
   - text: "What is your last name?"
-  
+
+  utter_ask_minitalkCategory:
+  - text: "You have three choices for mini-talk schedule: \n
+             Presenter \n
+             Questioner \n
+             Both"
+
   utter_greet_with_name:
   - text: "Hey {name}, how can I help you?"
 
@@ -80,13 +95,16 @@ actions:
   - action_get_schedule
   - action_get_holidays
   - action_get_deadlines
+  - action_get_notes
+  - action_mini_talk
 
 entities:
   - name
   - last_name
   - weeknumber
   - assignmentNum
-
+  - chapterName
+  - minitalkCategory
 
 slots:
   name:
@@ -97,6 +115,15 @@ slots:
     type: text
   assignmentNum:
     type: text
+  chapterName:
+    type: text
+  minitalkCategory:
+    type: categorical
+    values:
+      - Presenter
+      - Questioner
+      - Both
+
 
 forms:
   personal_info_form:
@@ -107,11 +134,19 @@ forms:
       - type: from_text
   chapter_info_form:
     required_slots:
-      weeknumber:
+      chapterName:
       - type: from_text
   assignment_info_form:
     required_slots:
       assignmentNum:
+      - type: from_text
+  minitalk_info_form:
+    required_slots:
+      minitalkCategory:
+      - type: from_text
+      name:
+      - type: from_text
+      last_name:
       - type: from_text
 
 session_config:

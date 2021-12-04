@@ -114,6 +114,24 @@ nlu:
     - when is [inclass](assignmentNum) deadline
     - Can you help me check my deadlines for this course?
 
+- intent: class_notes
+  examples: | 
+    - Can you provide me class notes?
+    - class notes?
+    - give me class notes
+    - Can you provide me the class notes for Chapter [Corpus Linguistics](chapterName)?
+    - Chapter [regex](chapterName) class notes
+    - I want notes for chapter [Sentiment Analysis](chapterName)
+    - notes for [Deep NLP](chapterName)
+
+- intent: mini_talk
+  examples: |
+    - Can you tell me when my mini-talk is?
+    - when is my mini-talk?
+    - when am I a [Questioner](minitalkCategory) for mini-talk?
+    - when am I a [Presenter](minitalkCategory) for mini-talk?
+    - when do i have to participate in mini-talk?
+    
 - intent: name_entry
   examples: |
     - My name is [Rohit](name)

@@ -90,9 +90,79 @@ class GetDeadlines(Action):
             if int(assignmentNum) > 0:
                 subset_df = deadlines[deadlines['Assessment'].str.contains("Assignment "+assignmentNum) == True]
                 dispatcher.utter_message(text="Hello " + name + "! The deadline for Assignment " + assignmentNum + " is: \n" + subset_df.to_string())
+                return []
             else:
                 dispatcher.utter_message(text="Hello " + name + "! The deadlines are as follows: \n" + deadlines.to_string())
+                return []
         else:
-            dispatcher.utter_message(text="Hello " + name + "! The deadlines are as follows: \n" + deadlines.to_string())
+            subset_df = deadlines[deadlines['Assessment'].str.contains("assignmentNum") == True]
+            dispatcher.utter_message(text="Hello " + name + "! The deadlines are as follows: \n" + subset_df.to_string())
+                          
+        dispatcher.utter_message(text="Hello " + name + "! The assignment details are incorrect \n" )   
 
+        return []
+
+class GetNotes(Action):
+
+    def name(self) -> Text:
+        return "action_get_notes"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        name = tracker.get_slot("name")
+        chapterName = tracker.get_slot("chapterName")
+        print(chapterName)
+
+        # read csv file
+        notes = pd.read_csv('data/Notes.csv')
+        notes.columns = ['Week', 'Chapter', 'Url']
+        print(notes.columns)
+        # check if assignmentNum is a number
+        for i in range(len(notes)):
+            # check if notes['Chapter'] contains the string "chapterName" and filter out the rows
+            if chapterName.lower() in notes['Chapter'][i].lower():
+                dispatcher.utter_message(text="Hello " + name + "! The notes for topic " + chapterName + " could be found here: \n" + notes['Url'][i])
+                return []
+        dispatcher.utter_message(text="Hello " + name + "! There are no notes for the topic " + chapterName + ".")
+
+        return []
+
+class GetMiniTalk(Action):
+
+    def name(self) -> Text:
+        return "action_mini_talk"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        name = tracker.get_slot("name")
+        lastName = tracker.get_slot("last_name")
+        minitalkCategory = tracker.get_slot("minitalkCategory")
+        fullName = lastName+","+name
+        print(fullName)
+        print(minitalkCategory)
+
+        # read csv file
+        minitalk = pd.read_csv('data/minitalk.csv')
+        minitalk.columns = ['Week', 'Presenter', 'Questioner 1', 'Questioner 2']
+        print(minitalk.columns)
+
+        # empty data frame
+        minitalk_df = pd.DataFrame(columns=['Week', 'Presenter', 'Questioner 1', 'Questioner 2'])
+
+        # check if assignmentNum is a number
+        for i in range(len(minitalk)):
+            if minitalkCategory == "Presenter":
+                if fullName.lower() in minitalk['Presenter'][i].lower():
+                    minitalk_df = minitalk_df.append(minitalk.iloc[[i]], ignore_index=True)
+            elif minitalkCategory == "Questioner":
+                if fullName.lower() in minitalk['Questioner 1'][i].lower() or fullName.lower() in minitalk['Questioner 2'][i].lower():
+                    minitalk_df = minitalk_df.append(minitalk.iloc[[i]], ignore_index=True)
+            else:
+                if fullName.lower() in minitalk['Presenter'][i].lower() or fullName.lower() in minitalk['Questioner 1'][i].lower() or fullName.lower() in minitalk['Questioner 2'][i].lower():
+                    minitalk_df = minitalk_df.append(minitalk.iloc[[i]], ignore_index=True)
+        dispatcher.utter_message(text="Hello " + name + "! The minitalk details are as follows: \n" + minitalk_df.to_string())
         return []

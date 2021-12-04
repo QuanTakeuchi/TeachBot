@@ -14,7 +14,7 @@ rules:
 
 - rule: Ask Name form
   steps:
-  - intent: name
+  - intent: greet
   - action: utter_introduce
   - action: personal_info_form
   - active_loop: personal_info_form
@@ -76,6 +76,7 @@ rules:
 #   #   - assignmentNum: -1
 
 
+
 - rule: Submit Deadlines Form
   steps:
   # Form is deactivated
@@ -86,7 +87,52 @@ rules:
   # The actions we want to run when the form is submitted.
   - action: action_get_deadlines
 
+- rule: Display Notes
+  steps:
+  - intent: class_notes
+  - action: utter_show_notes
+  - action: chapter_info_form
+  - active_loop: chapter_info_form
+  - slot_was_set:
+    - chapterName: regex
+
+- rule: Submit Notes Form
+  steps:
+  # Form is deactivated
+  - action: chapter_info_form
+  - active_loop: null
+  - slot_was_set:
+    - chapterName: regex
+  # The actions we want to run when the form is submitted.
+  - action: action_get_notes
+
+- rule: Mini-talk with user
+  steps:
+  - intent: mini_talk
+  - action: minitalk_info_form
+  - active_loop: minitalk_info_form
+  - slot_was_set:
+    - name: Quan
+  - slot_was_set:
+    - last_name: Nguyen
+
+- rule: Mini-talk form submit
+  steps:
+  # Form is deactivated
+  - action: minitalk_info_form
+  - active_loop: null
+  - slot_was_set:
+    - name: Quan
+  - slot_was_set:
+    - last_name: Nguyen
+  # The actions we want to run when the form is submitted.
+  - action: action_mini_talk
+
+
 - rule: Greet user
+  condition:
+  - slot_was_set:
+    - name: true
   steps:
   - intent: greet
   - action: utter_greet_with_name
