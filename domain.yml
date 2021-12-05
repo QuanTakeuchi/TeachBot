@@ -16,6 +16,9 @@ intents:
   - assignment_deadlines
   - class_notes
   - mini_talk
+  - grading
+  - bird
+  - jurafsky
 
 
 responses:
@@ -23,7 +26,8 @@ responses:
   - text: "Hey! How can I help you?"
 
   utter_introduce:
-  - text: "My name is Felicity. I am a virtual assistant for the NLP course IST664. I can help you with your homework, books, class schedule, and more."
+  - text: "My name is Felicity. I am a virtual assistant for the NLP course IST664. \n
+        I can help you with your course reading materials, class schedule, important deadlines, mini-talk schedule, grading criteria and more."
 
   utter_help:
   - text: "How can I help you today?"
@@ -72,8 +76,7 @@ responses:
   - text: "Here are the notes for this class: "
 
   utter_ask_chapterName:
-  - text: "Which chapter would you like notes for? \n
-          Enter topic like: Regex, Sentiment Analysis, Corpus Linguistics, Introduction, etc. "
+  - text: "Which chapter would you like notes for?"
 
   utter_ask_name:
   - text: "What is your name?"
@@ -97,6 +100,11 @@ actions:
   - action_get_deadlines
   - action_get_notes
   - action_mini_talk
+  - action_get_books
+  - action_show_note_topics
+  - action_get_grading
+  - action_get_jurafsky
+  - action_get_bird
 
 entities:
   - name

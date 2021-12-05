@@ -76,6 +76,20 @@ nlu:
     - I need a link to the book.
     - Can you download the book?
     
+- intent: jurafsky
+  examples: |
+    - Can you give me notes from jurafsky?
+    - notes from jurafsky
+    - Jurafsky chapter links
+    - link to reading material from jurafsky
+
+- intent: bird
+  examples: |
+    - Can you give me a link to the bird?
+    - I need a link to the bird.
+    - Can you download the bird chapters?
+    - bird notes
+
 - intent: class_schedule
   examples: |
     - what will be the weekly class schedule?
@@ -101,7 +115,14 @@ nlu:
     - course syllabus?
     - NLP syllabus
     - course outcomes
-    
+
+- intent: grading
+  examples: |
+    - What is the grading policy?
+    - What is the grading scale?
+    - Show grading policy
+
+
 - intent: assignment_deadlines
   examples: |
     - What is the deadline for assignments [1](assignmentNum)?

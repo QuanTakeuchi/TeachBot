@@ -1,13 +1,13 @@
 Week, Chapter, Url
-1, Course Overview and Introduction to NLP, https://linktoIntroNLP.com
-3, Corpus Linguistics and N-gram Models, https://linktoCorpLinguistics.com
-4, Regular Expressions Morphology, https://linktoRegExMorphology.com
-5, Part-of-speech Tagging and parsing, https://linktoPOSandParsing.com
-6, Lexical Semantics WordNet WSD, https://linktoWordNet.com
-7, Semantic Representations Semantic Role Labeling, https://linktoSemanticRepresentations.com
-8, Sentiment Analysis, https://linktoSentimentAnalysis.com
-9, Discourse Linguistics Pragmatics and Dialogue Theory, https://linktoDiscourseLinguistics.com
-10, Deep NLP, https://linktoDeepNLP.com
-11, Deep NLP (2), https://linktoDeepNLP2.com
-12, NLP Applications (1), https://linktoNLP1.com
-14, NLP Applications (2), https://linktoNLP2.com
+1, Introduction to NLP and the processing of text words, https://drive.google.com/file/d/1e5OtJNtsJI_k3Wo9jcfOnmFNAlBjb_o4/view?usp=sharing
+2, Corpus statistics and language modeling, https://drive.google.com/file/d/1WGO-L-vRfkD9rsznUM7eVhnhVeSrT-fB/view?usp=sharing
+3,"Regular expressions, morphology, and processing text files", https://drive.google.com/file/d/1ruspWe8rgYTfFyjRbVe5zUjlaEWzENQf/view?usp=sharing
+4, Part of speech (POS) tagging, https://drive.google.com/file/d/16SLTyMdk9vxvF1yEGEDxIt2cH3mtxns5/view?usp=sharing
+5, Context­ free grammars and parsing, https://drive.google.com/file/d/1qws-jWnlsfU3UG_wi_GtKXOFe4vQhL_0/view?usp=sharing
+6, Semantics, https://drive.google.com/file/d/1U_rGqNxDwgWcihvrskYXIiGctvx3sZh5/view?usp=sharing
+7,"Semantic Representations, Semantic Role Labeling", https://drive.google.com/file/d/1cGVAwCZ11wPzGTtkgp182Rwmt9TW77Ir/view?usp=sharing
+8, Sentiment analysis, https://drive.google.com/file/d/1NeRxVv8OSaYMmTqtZK8S8tbKF6T9CIbP/view?usp=sharing
+9, Discourse analysis, https://drive.google.com/file/d/1likx-FezE0dht7NfdQUU5pPGhc7fztep/view?usp=sharing
+10, Pragmatics/Dialogue theory and NLP application (1), https://drive.google.com/file/d/1IN4971FQwLImnZJllZ2HxmC7SSAmY8ep/view?usp=sharing
+11, NLP applications (2), https://drive.google.com/file/d/1csHRPWooLNBt97zCDTAOlvZAOZr0PTb8/view?usp=sharing
+12, Deep Learning for NLP, https://drive.google.com/file/d/1F2dq1IyaW4wirgz6WrvIcMoOhuaV7Qkz/view?usp=sharing    

@@ -90,7 +90,7 @@ rules:
 - rule: Display Notes
   steps:
   - intent: class_notes
-  - action: utter_show_notes
+  - action: action_show_note_topics
   - action: chapter_info_form
   - active_loop: chapter_info_form
   - slot_was_set:
@@ -128,6 +128,25 @@ rules:
   # The actions we want to run when the form is submitted.
   - action: action_mini_talk
 
+- rule: Get Books
+  steps:
+  - intent: books
+  - action: action_get_books
+
+- rule: Get Jurafsky
+  steps:
+  - intent: jurafsky
+  - action: action_get_jurafsky
+
+- rule: Get Bird
+  steps:
+  - intent: bird
+  - action: action_get_bird
+
+- rule: Get Grading
+  steps:
+  - intent: grading
+  - action: action_get_grading
 
 - rule: Greet user
   condition:

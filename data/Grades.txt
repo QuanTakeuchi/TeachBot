@@ -1,0 +1,12 @@
+Grades for this course will be determined as follows:
+
+Individual assignments
+1, Mini-talk, 10% (Presenter - 8% & Questioner - 2%)
+2, Weekly lab exercise, 10%
+3, Class Participation 10%
+4, 3 Homework Assignments 30% (10% each)
+
+Group Assignments
+Part 1, NLP Application Investigation (Proposal), 5%
+Part 2, NLP Application Investigation (Presentation), 15%
+Part 3, NLP Application Investigation (Report), 20%
