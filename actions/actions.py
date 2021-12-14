@@ -180,10 +180,8 @@ class GetDeadlines(Action):
         else:
             subset_df = deadlines[deadlines['Assessment'].str.contains(assignmentNum) == True]
             dispatcher.utter_message(text="Hello " + name + "! The deadlines are as follows: \n" + subset_df.to_string())
-                          
-        dispatcher.utter_message(text="Hello " + name + "! The assignment details are incorrect \n" )   
+            return []
 
-        return []
 
 class GetNotes(Action):
 
@@ -212,21 +210,25 @@ class GetNotes(Action):
         subset_df = pd.DataFrame(columns=['Week', 'Chapter', 'Url'])
         
         for i in range(len(notes)):
+            print(notes.iloc[i]['Chapter'])
             # check if notes['Chapter'] contains the string "chapterName" and filter out the rows
             if chapterName.lower() in notes['Chapter'][i].lower():
+                print(notes['Chapter'][i])
                 # subset current row into a dataframe
-                subset_df = subset_df.append(notes.iloc[i])
+                subset_df = subset_df.append(notes.iloc[i], ignore_index=True)
                 # dispatcher.utter_message(text="Hello " + name + "! The notes for topic " + chapterName + " could be found here: \n" + subset_df.to_string())
             if chapterName.lower() in jurafsky['Chapter'][i].lower():
+                print(notes['Chapter'][i])
                 # subset current row into a dataframe
-                subset_df = subset_df.append(jurafsky.iloc[i])    
+                subset_df = subset_df.append(jurafsky.iloc[i], ignore_index=True)    
             if chapterName.lower() in bird['Chapter'][i].lower():
-                subset_df = subset_df.append(bird.iloc[i])
+                print(notes['Chapter'][i])
+                subset_df = subset_df.append(bird.iloc[i], ignore_index=True)
         if len(subset_df) == 0:
-            dispatcher.utter_message(text="Hello " + name + "! The notes for topic " + chapterName + " could not be found \n")
+            dispatcher.utter_message(text=" The notes for topic " + chapterName + " could not be found \n")
             dispatcher.utter_message(text="Showing results for all the notes \n" + subset_df.to_string())
         else:
-            dispatcher.utter_message(text="Hello " + name + "! The notes for the given topics are as follows:  \n" + subset_df.to_string())
+            dispatcher.utter_message(text="Hello ! The notes for the given topics are as follows:  \n" + subset_df.to_string())
 
         return []
 
